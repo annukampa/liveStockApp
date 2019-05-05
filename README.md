@@ -18,6 +18,11 @@ The app looks like :
 
 ![Basic App Layout](images/appBasicLayout.png)
 
+The column 5 Day Performance shows the comparison of last 5 days , along with their % change which can be viewed on hover the colored blocks.
+The red colored block depicts there has been a decline in price as compared to the previous day.
+While the green colored block depicts there has been an increase in price as compared to the previous day.
+
+![Five Day Performance Hover](images/fiveDayPerformance.png)
 
 One can click a table row to view the detail : 
 

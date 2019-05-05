@@ -12,7 +12,7 @@ export class DetailComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<DetailComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.stockData = this.data.dataArray;
-    console.log('data in detail component', data);
+    // console.log('data in detail component', data);
   }
 
   ngOnInit() {

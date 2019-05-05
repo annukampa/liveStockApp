@@ -31,6 +31,6 @@ export class PerformanceMeasureComponent implements OnInit {
         this.fiveDaysData.push(obj);
       }
     }
-    console.log('data object here is', this.fiveDaysData);
+    // console.log('data object here is', this.fiveDaysData);
   }
 }

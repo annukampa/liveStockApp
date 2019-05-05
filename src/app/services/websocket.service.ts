@@ -11,7 +11,7 @@ export class WebsocketService {
   public connect(url): Rx.Subject<any> {
     if (!this.subject) {
       this.subject = this.create(url);
-      console.log('finally connected @@' + url);
+      // console.log('finally connected @@' + url);
     }
     return this.subject;
   }

@@ -12,3 +12,13 @@ And is published at `https://annukampa.github.io/liveStockApp/` via github pages
 5. Or add  '--open' with 'ng serve' as here : 'ng serve --open' , this will open the app directly in the browser on this location `http://localhost:4200/`.
 6. The app will automatically reload if you change any of the source files.
 
+## App demo
+
+The app looks like : 
+
+![Basic App Layout](images/appBasicLayout.png)
+
+
+One can click a table row to view the detail : 
+
+![Detailed View](images/rowClickModal.png)

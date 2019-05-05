@@ -1,0 +1,59 @@
+<mat-toolbar color="secondary">
+  <span class="tool-bar-text">(Live) Stocks App</span>
+</mat-toolbar>
+<mat-progress-bar
+  *ngIf="loading"
+  [color]="'primary'"
+  [mode]="'indeterminate'"
+  [value]="'50'"
+  [bufferValue]="'75'">
+</mat-progress-bar>
+<table mat-table [dataSource]="dataSource" *ngIf="!loading" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Company Name </th>
+    <td mat-cell *matCellDef="let element">
+      <button class="mat-button mat-stroked-button">{{element.name | uppercase}} </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef> Price  ( INR ) </th>
+    <td mat-cell *matCellDef="let element">
+      <span *ngIf="element.value === getLastStockPrice(element.name)">
+        {{element.value | number: '1.2-2'}}
+      </span>
+      <span class="price-cell gain-color"
+            *ngIf="element.value > getLastStockPrice(element.name)">
+        {{element.value | number: '1.2-2'}}
+      </span>
+      <span class="price-cell loss-color"
+            *ngIf="element.value < getLastStockPrice(element.name)">
+        {{element.value | number: '1.2-2'}}
+      </span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="last price">
+    <th mat-header-cell *matHeaderCellDef> Last Price  ( INR ) </th>
+    <td mat-cell *matCellDef="let element">
+      {{getLastStockPrice(element.name) | number: '1.2-2'}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="change">
+    <th mat-header-cell *matHeaderCellDef> Change ( % ) </th>
+    <td mat-cell *matCellDef="let element">
+      <span>{{getChangePercent(element.value, getLastStockPrice(element.name)) | number: '1.2-2'}}</span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="graph">
+    <th mat-header-cell *matHeaderCellDef> 5 Day Performance </th>
+    <td mat-cell *matCellDef="let element">
+      <span *ngIf="!canMeasurePerformance(element.name)">---</span>
+      <span *ngIf="canMeasurePerformance(element.name)">
+        <app-performance-measure [dataArr]="stockData[element.name]"></app-performance-measure>
+      </span>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="rowClicked(row)">
+  </tr>
+</table>

@@ -1,0 +1,6 @@
+<div class="performance-btn-group">
+  <button *ngFor="let dayValue of fiveDaysData"
+          matTooltip="{{dayValue.value}} ({{dayValue.change}} %)"
+          [matTooltipPosition]= "'above'"
+          [ngClass]="dayValue.change < 0 ? 'loss-value' : 'gain-value'"></button>
+</div>

@@ -1,0 +1,42 @@
+<h1 mat-dialog-title class="title-text">
+  <span>{{data.coName | uppercase}}</span>
+</h1>
+<div mat-dialog-content>
+  <mat-grid-list cols="4" rowHeight="500px">
+    <mat-grid-tile [colspan]="3"
+                   [rowspan]="1">
+      <app-stock-chart [data]="data.dataArray" [coName]="data.coName"></app-stock-chart>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"
+                   [rowspan]="1">
+      <div>
+        <table class="data-table">
+          <tr >
+            <td class="mat-subheading-1 mat-title">
+              <strong>Highest Price</strong>
+            </td>
+            <td>{{getMaxPrice() | number: '1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td class="mat-subheading-1 mat-title">
+              <strong>Lowest Price</strong>
+            </td>
+            <td>{{getMinPrice() | number: '1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td class="mat-subheading-1 mat-title">
+              <strong>Current Price</strong>
+            </td>
+            <td>{{getCurrentPrice() | number: '1.2-2'}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<div mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-button
+          class="mat-stroked-button mat-button"
+          (click)="close()">Close</button>
+</div>

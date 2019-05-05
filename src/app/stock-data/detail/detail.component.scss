@@ -1,0 +1,20 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.title-text {
+  border-bottom: 2px solid #666666;
+  margin-left: 3%;
+  margin-right: 3%;
+  span {
+    color: #666666;
+    margin-left: 1%;
+  }
+}
+/deep/.mat-grid-tile .mat-figure {
+  width: 100%;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+table.data-table {
+  border-spacing: 28px;
+}
